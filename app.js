@@ -1,8 +1,9 @@
 var fs = require('fs'),
     ga = require('./trivialExample/geneticAlgorithm');
 
-var result = ga.run(4);
-var writeVal = "";
+var numberOfGenerations = 2,
+    result = ga.run(numberOfGenerations),
+    writeVal = "";
 
 for (var i = 0; i < result.length; i++) {
   writeVal += '"' + result[i] + '"';
@@ -11,7 +12,9 @@ for (var i = 0; i < result.length; i++) {
   }
 }
 
-fs.writeFile('./foundPrimes.csv', writeVal, function (err) {
+
+// This is a separate output file so you don't have to overwrite your seed data.
+fs.writeFile('./found-primes.csv', writeVal, function (err) {
   if (err) { throw err; }
   console.log('File was saved.');
 });
