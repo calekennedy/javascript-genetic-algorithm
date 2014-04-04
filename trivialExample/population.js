@@ -8,10 +8,11 @@ module.exports = {
 
     var population = [];
 
+    // Reed the contents of the seed_data.csv file
     // You would normally never block the thread, but this is a trivial example
     var contents = fs.readFileSync('./trivialExample/seed_data.csv', 'utf8');
 
-    // If the seed_data file has any values in it.
+    // If seed_data contains any values, use them as our initial population.
     if (contents) {
 
       var arr = contents.replace(/\"/g, "").split(",");
@@ -20,7 +21,7 @@ module.exports = {
         population.push(parseInt(arr[i]));
       }
 
-    // Otherwise, create some numbers of our own.
+    // Otherwise, create a generic starting population.
     } else {
 
       for (var i = 0; i < 1000; i++) {

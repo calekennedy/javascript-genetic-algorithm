@@ -5,6 +5,7 @@ var numberOfGenerations = 2,
     result = ga.run(numberOfGenerations),
     writeVal = "";
 
+// Loop over the results and convert them to a csv.
 for (var i = 0; i < result.length; i++) {
   writeVal += '"' + result[i] + '"';
   if (i < result.length-1) {
